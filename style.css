@@ -1,70 +1,53 @@
-body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    margin: 20px;
-    font-size: 2rem;
-  }
-  
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .case {
-    background: #ffefd5;
-    border: 2px solid #d2691e;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    perspective: 1000px;
-  }
-  
-  .case-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-  }
-  
-  .case-front,
-  .case-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-  
-  .case-front {
-    background: #ffefd5;
-  }
-  
-  .case-back {
-    background: #ff4500;
-    transform: rotateY(180deg);
-    color: white;
-  }
-  
-  .case:hover .case-inner {
-    transform: rotateY(180deg);
-  }
-  
+/* Conteneur pour le retournement */
+.case {
+  position: relative;
+  perspective: 1000px; /* Nécessaire pour l'effet de retournement */
+}
+
+.case-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.case:hover .case-inner {
+  transform: rotateY(180deg); /* Retourner la case */
+}
+
+/* Face avant */
+.case-front,
+.case-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Masquer l'arrière lorsque non retournée */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.case-front {
+  background: linear-gradient(to bottom right, #f85f73, #f8b400);
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.case-back {
+  transform: rotateY(180deg);
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Empêche les GIFs de déborder */
+  border: 3px solid #ffffff;
+}
+
+/* Assure que le GIF est bien dimensionné */
+.case-back img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
