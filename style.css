@@ -1,53 +1,43 @@
-/* Conteneur pour le retournement */
+/* Ajouter la police de Noël */
+
+/* Style du titre */
+h1 {
+  text-align: center; /* Centre le titre */
+  color: #d50000; /* Rouge vif */
+  font-size: 3rem; /* Taille du texte */
+  margin: 20px 0; /* Marge au-dessus et en-dessous */
+}
+
+/* Conteneur pour le calendrier */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
 .case {
   position: relative;
-  perspective: 1000px; /* Nécessaire pour l'effet de retournement */
-}
-
-.case-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-}
-
-.case:hover .case-inner {
-  transform: rotateY(180deg); /* Retourner la case */
-}
-
-/* Face avant */
-.case-front,
-.case-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Masquer l'arrière lorsque non retournée */
+  width: 100px;
+  height: 100px;
+  background-color: #f85f73;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
 }
 
-.case-front {
-  background: linear-gradient(to bottom right, #f85f73, #f8b400);
-  color: #ffffff;
-  font-size: 1.5rem;
+.case:hover {
+  background-color: #f8b400;
+  transition: background-color 0.3s ease;
 }
 
-.case-back {
-  transform: rotateY(180deg);
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Empêche les GIFs de déborder */
+/* Ajouter une bordure à chaque case */
+.case {
   border: 3px solid #ffffff;
-}
-
-/* Assure que le GIF est bien dimensionné */
-.case-back img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+  box-sizing: border-box;
 }
