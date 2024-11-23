@@ -1,29 +1,29 @@
-// Tableau des GIFs (fixés par jour)
-const gifs = [
-  "gifs/1.gif",
-  "gifs/2.gif",
-  "gifs/3.gif",
-  "gifs/4.gif",
-  "gifs/5.gif",
-  "gifs/6.gif",
-  "gifs/7.gif",
-  "gifs/8.gif",
-  "gifs/9.gif",
-  "gifs/10.gif",
-  "gifs/11.gif",
-  "gifs/12.gif",
-  "gifs/13.gif",
-  "gifs/14.gif",
-  "gifs/15.gif",
-  "gifs/16.gif",
-  "gifs/17.gif",
-  "gifs/18.gif",
-  "gifs/19.gif",
-  "gifs/20.gif",
-  "gifs/21.gif",
-  "gifs/22.gif",
-  "gifs/23.gif",
-  "gifs/24.gif"
+// Tableau des images (fixées par jour)
+const images = [
+  "images/1.jpeg",
+  "images/2.jpeg",
+  "images/3.jpeg",
+  "images/4.jpeg",
+  "images/5.jpeg",
+  "images/6.jpeg",
+  "images/7.jpeg",
+  "images/8.jpeg",
+  "images/9.jpeg",
+  "images/10.jpeg",
+  "images/11.jpeg",
+  "images/12.jpeg",
+  "images/13.jpeg",
+  "images/14.jpeg",
+  "images/15.jpeg",
+  "images/16.jpeg",
+  "images/17.jpeg",
+  "images/18.jpeg",
+  "images/19.jpeg",
+  "images/20.jpeg",
+  "images/21.jpeg",
+  "images/22.jpeg",
+  "images/23.jpeg",
+  "images/24.jpeg"
 ];
 
 // Mélanger les indices des cases (ordre aléatoire)
@@ -46,17 +46,17 @@ shuffledIndices.forEach((shuffledIndex, i) => {
   calendar.appendChild(caseElement); // Réorganise les cases
 });
 
-// Ajouter les GIFs fixes aux cases
+// Ajouter les images fixes aux cases
 cases.forEach((caseElement, index) => {
   const day = index + 1; // Jour associé à la case
-  const gifUrl = gifs[index]; // GIF correspondant
+  const imageUrl = images[index]; // Image correspondante
 
   // Structure des faces avant et arrière
   caseElement.innerHTML = `
     <div class="case-inner">
       <div class="case-front">${day}</div>
       <div class="case-back">
-        <img src="${gifUrl}" alt="Surprise du jour ${day}">
+        <img src="${imageUrl}" alt="Surprise du jour ${day}">
       </div>
     </div>
   `;
